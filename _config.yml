@@ -27,3 +27,8 @@ defaults:
 head_scripts:
   - /assets/css/style.css
   - /_includes/head-custom.html
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default-rtl
