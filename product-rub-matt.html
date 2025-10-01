@@ -2,24 +2,53 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <title>رژ لب مات - مصطفی ادیب</title>
+  <title>رژ لب مات – مصطفی ادیب</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body{direction:rtl;text-align:right;font-family:tahoma;background:#fff9ff;margin:0;padding:0;}
-    .wrapper{max-width:800px;margin:0 auto;padding:15px;}
-    img{max-width:100%;border:1px solid #ddd;border-radius:4px;}
-    .price{color:#d4446a;font-size:1.5em;}
-    a.button{display:inline-block;background:#25d366;color:#fff;padding:10px 20px;border-radius:4px;text-decoration:none;margin-top:10px;}
+    :root{--blue:#005eb8;--orange:#ff6900;--grey:#f3f3f3;}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:tahoma,arial;}
+    body{direction:rtl;background:var(--grey);}
+    .container{max-width:1000px;margin:0 auto;background:#fff;padding:20px;}
+    .row{display:flex;flex-wrap:wrap;gap:20px;}
+    .col-left{flex:1 1 400px;}
+    .col-right{flex:1 1 300px;}
+    img.main-img{width:100%;border:1px solid #ddd;border-radius:6px;}
+    .price{color:var(--orange);font-size:1.8rem;font-weight:bold;margin:10px 0;}
+    .buy-box{border:1px solid #ddd;border-radius:6px;padding:15px;background:#fafafa;}
+    .buy-btn{display:block;background:var(--orange);color:#fff;padding:12px;text-align:center;border-radius:4px;font-size:1.1rem;}
+    .buy-btn:hover{background:#e55e00;}
+    .specs{margin-top:15px;font-size:.9rem;color:#555;}
+    footer{background:#232f3e;color:#ccc;text-align:center;padding:15px;font-size:.8rem;margin-top:20px;}
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <h1>رژ لب مات</h1>
-    <img src="images/rub-matt.jpg" alt="رژ لب مات">
-    <p>ماندگاری ۲۴ ساعته، بدون خشکی</p>
-    <p class="price">۳۵۰ افغانی</p>
-    <a class="button" href="https://wa.me/93792149150?text=سلام، رژ لب مات را می‌خوام">سفارش واتس‌اپ</a>
-    <br><br>
-    <a href="/">← بازگشت به صفحه اصلی</a>
+  <div class="container">
+    <div class="row">
+      <div class="col-left">
+        <h1>رژ لب مات ۲۴ ساعته</h1>
+        <img class="main-img" src="images/rub-matt.jpg" alt="رژ لب مات">
+      </div>
+
+      <div class="col-right">
+        <div class="buy-box">
+          <div class="price">۳۵۰ افغانی</div>
+          <div>✅ تحویل سریع در کابل</div>
+          <div>✅ امکان بازگشت در ۷ روز</div>
+          <a class="buy-btn" href="https://wa.me/93792149150?text=سلام، رژ لب مات را می‌خوام">سفارش در واتس‌اپ</a>
+        </div>
+
+        <div class="specs">
+          <strong>ویژگی‌ها:</strong><br>
+          - ماندگاری ۲۴ ساعت<br>
+          - ضد آب<br>
+          - حاوی ویتامین E
+        </div>
+      </div>
+    </div>
   </div>
+
+  <footer>
+    <a href="/" style="color:#ccc;">← بازگشت به صفحه اصلی</a> | © 2025 فروشگاه مصطفی ادیب
+  </footer>
 </body>
 </html>
