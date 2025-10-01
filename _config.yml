@@ -23,3 +23,7 @@ defaults:
       layout: product
   sass:
   style: compressed
+
+head_scripts:
+  - /assets/css/style.css
+  - /_includes/head-custom.html
