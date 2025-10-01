@@ -5,8 +5,7 @@ baseurl: ""
 url: "https://jalaluddin-yaqubi.github.io"
 lang: fa
 theme: minima
-sass:
-  style: compressed
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -22,4 +21,5 @@ defaults:
       type: products
     values:
       layout: product
-      
+  sass:
+  style: compressed
