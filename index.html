@@ -9,55 +9,59 @@
 <body>
   <div id="header"></div>
 
-  <div class="banner">
-    تحویل سریع در سراسر افغانستان | پرداخت در محل یا آنلاین
+  <!-- اسلایدر خودکار -->
+  <div class="slider">
+    <div class="slides">
+      <img src="assets/images/slide1.jpg" alt="اسلاید ۱">
+      <img src="assets/images/slide2.jpg" alt="اسلاید ۲">
+      <img src="assets/images/slide3.jpg" alt="اسلاید ۳">
+    </div>
+    <button class="slider-btn prev" onclick="showSlide(index-1)">‹</button>
+    <button class="slider-btn next" onclick="showSlide(index+1)">›</button>
   </div>
 
-  <!-- ۲۰ کارت محصول آماده – فقط نام و تصویر عوض کن -->
-  <div class="prod-grid" id="productGrid"></div>
+  <!-- ۴ کته‌گوری -->
+  <div class="categories">
+    <div class="cat-card" onclick="filterCat('hot')">
+      <img src="assets/images/cat-hot.jpg" width="100%" alt="پرفروش‌ترین‌ها">
+      <div class="cat-title">پرفروش‌ترین‌ها</div>
+    </div>
+    <div class="cat-card" onclick="filterCat('makeup')">
+      <img src="assets/images/cat-makeup.jpg" width="100%" alt="محصولات آرایشی">
+      <div class="cat-title">محصولات آرایشی</div>
+    </div>
+    <div class="cat-card" onclick="filterCat('hygiene')">
+      <img src="assets/images/cat-hygiene.jpg" width="100%" alt="محصولات بهداشتی">
+      <div class="cat-title">محصولات بهداشتی</div>
+    </div>
+    <div class="cat-card" onclick="filterCat('care')">
+      <img src="assets/images/cat-care.jpg" width="100%" alt="محصولات مراقبتی">
+      <div class="cat-title">محصولات مراقبتی</div>
+    </div>
+  </div>
+
+  <!-- ۳ محصول در ردیف – خودکار از localStorage -->
+  <h2 style="text-align:center;margin:20px 0;color:var(--blue);">محصولات ما</h2>
+  <div class="prod-row" id="prodRow"></div>
 
   <div id="footer"></div>
 
   <script src="assets/js/main.js"></script>
   <script>
-    // آرایه ۲۰ محصول – فقط name و img و price را تغییر بده
-    const products = [
-      {name:'رژ لب مات', img:'assets/images/hairline powder.jpg', price:350},
-      {name:'کرم پودر', img:'assets/images/hair oil.jpg', price:420},
-      {name:'مداد چشم', img:'assets/images/product-03.jpg', price:180},
-      {name:'سایه چشم', img:'assets/images/product-04.jpg', price:320},
-      {name:'رژ گونه', img:'assets/images/product-05.jpg', price:280},
-      {name:'برق لب', img:'assets/images/product-06.jpg', price:200},
-      {name:'خط چشم', img:'assets/images/product-07.jpg', price:220},
-      {name:'ماسک صورت', img:'assets/images/product-08.jpg', price:150},
-      {name:'لوسیون بدن', img:'assets/images/product-09.jpg', price:380},
-      {name:'شامپو', img:'assets/images/product-10.jpg', price:240},
-      {name:'-conditioner', img:'assets/images/product-11.jpg', price:260},
-      {name:'کرم دست', img:'assets/images/product-12.jpg', price:170},
-      {name:'اسپری fix', img:'assets/images/product-13.jpg', price:310},
-      {name:'پنکک', img:'assets/images/product-14.jpg', price:390},
-      {name:'ریمل', img:'assets/images/product-15.jpg', price:340},
-      {name:'کرم ضد آفتاب', img:'assets/images/product-16.jpg', price:420},
-      {name:'سرم مو', img:'assets/images/product-17.jpg', price:290},
-      {name:'لاک ناخن', img:'assets/images/product-18.jpg', price:160},
-      {name:'مرطوب‌کننده لب', img:'assets/images/product-19.jpg', price:140},
-      {name:'برنزه‌کننده', img:'assets/images/product-20.jpg', price:450}
-    ];
-
-    // رندر خودکار کارت‌ها
-    const grid = document.getElementById('productGrid');
-    products.forEach((p, i) => {
-      grid.insertAdjacentHTML('beforeend', `
-        <div class="card">
-          <img src="${p.img}" alt="${p.name}">
-          <div class="card-body">
-            <div class="card-title">${p.name}</div>
-            <div class="card-price">${p.price} افغانی</div>
-            <button class="card-btn" onclick="addToCart('${p.name}',${p.price},'${p.img}')">افزودن به سبد</button>
-          </div>
-        </div>
-      `);
+    // خواندن محصولات از localStorage (داشبورد ذخیره می‌کند)
+    function getProducts() {
+      return JSON.parse(localStorage.getItem('ma-products')) || [];
     }
-  </script>
-</body>
-</html>
+    function renderProducts(cat = 'all') {
+      const rows = getProducts();
+      const filtered = cat === 'all' ? rows : rows.filter(p => p.cat === cat);
+      const row = document.getElementById('prodRow');
+      row.innerHTML = '';
+      filtered.forEach(p => {
+        row.insertAdjacentHTML('beforeend', `
+          <div class="prod-card">
+            <img src="${p.img}" alt="${p.name}">
+            <div class="prod-info">
+              <div class="prod-name">${p.name}</div>
+              <div class="prod-price">${p.price} افغانی</div>
+              
