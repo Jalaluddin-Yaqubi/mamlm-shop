@@ -8,16 +8,20 @@
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:tahoma,arial;
 }
 body{
   direction:rtl;
   background:var(--grey);
+  font-family:'B Mitra', tahoma, arial;
+  font-size:18px;
 }
-a{
-  text-decoration:none;
-  color:inherit;
+/* فونت B Mitra */
+@font-face{
+  font-family:'B Mitra';
+  src:url('../fonts/BMitra.woff2') format('woff2'),
+      url('../fonts/BMitra.woff') format('woff');
 }
+a{text-decoration:none;color:inherit;}
 /* header */
 .header{
   background:var(--blue);
@@ -27,12 +31,8 @@ a{
   align-items:center;
   gap:15px;
 }
-.header img{
-  height:40px;
-}
-.header h1{
-  font-size:1.5rem;
-}
+.header img{height:40px;}
+.header h1{font-size:1.6rem;}
 .cart-btn{
   background:var(--orange);
   padding:8px 16px;
@@ -46,7 +46,7 @@ a{
   color:#fff;
   text-align:center;
   padding:25px 10px;
-  font-size:1.1rem;
+  font-size:1.2rem;
 }
 /* product grid */
 .prod-grid{
@@ -69,18 +69,9 @@ a{
   object-fit:cover;
   border-radius:6px 6px 0 0;
 }
-.card-body{
-  padding:12px;
-}
-.card-title{
-  font-weight:bold;
-  margin-bottom:6px;
-}
-.card-price{
-  color:var(--orange);
-  font-size:1.4rem;
-  margin-bottom:10px;
-}
+.card-body{padding:12px;}
+.card-title{font-weight:bold;margin-bottom:6px;}
+.card-price{color:var(--orange);font-size:1.4rem;margin-bottom:10px;}
 .card-btn{
   display:block;
   background:var(--blue);
@@ -89,9 +80,7 @@ a{
   text-align:center;
   border-radius:4px;
 }
-.card-btn:hover{
-  background:#004a90;
-}
+.card-btn:hover{background:#004a90;}
 /* footer */
 .footer{
   background:var(--dark);
