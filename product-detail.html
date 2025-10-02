@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-left">
         <h1 id="productName">نام محصول</h1>
-        <img id="productImg" class="main-img" src="assets/images/product-01.jpg" alt="محصول">
+        <img id="productImg" class="main-img" src="assets/images/hairline powder.jpg" alt="محصول">
       </div>
 
       <div class="col-right">
@@ -42,7 +42,7 @@
     const params = new URLSearchParams(location.search);
     const name = params.get('name') || 'محصول';
     const price = params.get('price') || '0';
-    const img = params.get('img') || 'assets/images/product-01.jpg';
+    const img = params.get('img') || 'assets/images/hairline powder.jpg';
 
     document.getElementById('productName').textContent = name;
     document.getElementById('productPrice').textContent = price + ' افغانی';
