@@ -10,38 +10,33 @@
   <div id="header"></div>
 
   <div class="dashboard">
-    <h2>داشبورد فروشگاه</h2>
-    <button onclick="applyDiscount()" style="background:var(--orange);color:#fff;padding:8px 16px;border:none;border-radius:4px;cursor:pointer;">کد تخفیف جدید</button>
+    <h2>داشبورد مدیریت محصولات</h2>
 
-    <h3>سبد خرید فعلی</h3>
-    <div id="cartView"></div>
+    <form id="prodForm">
+      <label>نام محصول:</label>
+      <input type="text" id="pName" required>
 
-    <h3>آمار امروز</h3>
-    <ul>
-      <li>تعداد بازدید: <span id="visitCount">0</span></li>
-      <li>تعداد سفارشات: <span id="orderCount">0</span></li>
-    </ul>
+      <label>قیمت (افغانی):</label>
+      <input type="number" id="pPrice" required>
+
+      <label>تصویر (نام فایل داخل images):</label>
+      <input type="text" id="pImg" placeholder="مثلاً product-05.jpg" required>
+
+      <label>کته‌گوری:</label>
+      <select id="pCat">
+        <option value="hot">پرفروش‌ترین‌ها</option>
+        <option value="makeup">محصولات آرایشی</option>
+        <option value="hygiene">محصولات بهداشتی</option>
+        <option value="care">محصولات مراقبتی</option>
+      </select>
+
+      <button type="submit" style="background:var(--orange);color:#fff;padding:10px 20px;border:none;border-radius:4px;cursor:pointer;margin-top:10px;">افزودن محصول</button>
+    </form>
+
+    <h3>محصولات موجود</h3>
+    <div id="prodList"></div>
   </div>
 
   <div id="footer"></div>
 
-  <script src="assets/js/main.js"></script>
-  <script>
-    // نمایش سبد
-    function showCart() {
-      const cart = getCart();
-      const view = document.getElementById('cartView');
-      if (!cart.length) view.innerHTML = '<p>سبد خالی است.</p>';
-      else {
-        let html = '<ul>';
-        cart.forEach(i => {
-          html += `<li>${i.name} × ${i.qty} = ${i.price * i.qty} افغانی</li>`;
-        });
-        html += '</ul>';
-        view.innerHTML = html;
-      }
-    }
-    showCart();
-  </script>
-</body>
-</html>
+  <script src="assets/js/main.js
