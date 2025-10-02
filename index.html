@@ -4,33 +4,10 @@
   <meta charset="utf-8">
   <title>فروشگاه مصطفی ادیب</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    :root{--blue:#005eb8;--orange:#ff6900;--grey:#f3f3f3;}
-    *{box-sizing:border-box;margin:0;padding:0;font-family:tahoma,arial;}
-    body{direction:rtl;background:var(--grey);}
-    a{text-decoration:none;color:inherit;}
-    header{background:var(--blue);color:#fff;padding:12px 20px;display:flex;align-items:center;gap:15px;}
-    header img{height:40px;}
-    header h1{font-size:1.5rem;}
-    .cart-btn{background:var(--orange);padding:8px 16px;border-radius:4px;color:#fff;margin-right:auto;}
-    .banner{background:var(--orange);color:#fff;text-align:center;padding:25px 10px;font-size:1.1rem;}
-    .prod-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;padding:20px;}
-    .card{background:#fff;border:1px solid #ddd;border-radius:6px;width:260px;box-shadow:0 2px 6px rgba(0,0,0,.1);}
-    .card img{width:100%;height:180px;object-fit:cover;border-radius:6px 6px 0 0;}
-    .card-body{padding:12px;}
-    .card-title{font-weight:bold;margin-bottom:6px;}
-    .card-price{color:var(--orange);font-size:1.4rem;margin-bottom:10px;}
-    .card-btn{display:block;background:var(--blue);color:#fff;padding:8px;text-align:center;border-radius:4px;}
-    .card-btn:hover{background:#004a90;}
-    footer{background:#232f3e;color:#ccc;text-align:center;padding:15px;font-size:.85rem;}
-  </style>
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-  <header>
-    <img src="images/logo.jpg" alt="لوگوی مصطفی ادیب">
-    <h1>فروشگاه مصطفی ادیب</h1>
-    <a class="cart-btn" href="https://wa.me/93792149150">🛒 ۰۷۹۲۱۴۹۱۵۰</a>
-  </header>
+  <div id="header"></div>
 
   <div class="banner">
     تحویل سریع در سراسر افغانستان | پرداخت در محل یا آنلاین
@@ -38,17 +15,17 @@
 
   <div class="prod-grid">
     <div class="card">
-      <img src="images/rice facial.jpg" alt="بسته عصاره برنج">
+      <img src="assets/images/rub-matt.jpg" alt="رژ لب مات">
       <div class="card-body">
-        <div class="card-title">عصاره برنج</div>
+        <div class="card-title">رژ لب مات ۲۴ ساعته</div>
         <div class="card-price">۳۵۰ افغانی</div>
-        <a class="card-btn" href="product-rub-matt.html">مشاهده و خرید</a>
+        <a class="card-btn" href="pages/product-detail.html">مشاهده و خرید</a>
       </div>
     </div>
   </div>
 
-  <footer>
-    © 2025 فروشگاه مصطفی ادیب – تمام حقوق محفوظ است.
-  </footer>
+  <div id="footer"></div>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
