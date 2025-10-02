@@ -39,4 +39,57 @@
 
   <div id="footer"></div>
 
-  <script src="assets/js/main.js
+  <script src="assets/js/main.js"></script>
+  <script>
+    // خواندن/نوشتن محصولات
+    function getProducts() {
+      return JSON.parse(localStorage.getItem('ma-products')) || [];
+    }
+    function saveProducts(p) {
+      localStorage.setItem('ma-products', JSON.stringify(p));
+    }
+
+    // رندر فرم و لیست
+    function renderList() {
+      const list = getProducts();
+      const div = document.getElementById('prodList');
+      div.innerHTML = '';
+      list.forEach((p, i) => {
+        div.insertAdjacentHTML('beforeend', `
+          <div style="border:1px solid #ddd;padding:10px;margin:5px 0;border-radius:4px;">
+            <strong>${p.name}</strong> - ${p.price} افغانی - <img src="${p.img}" width="50">
+            <button onclick="removeProd(${i})" style="float:left;background:#d4446a;color:#fff;border:none;padding:4px 8px;border-radius:3px;cursor:pointer;">حذف</button>
+          </div>
+        `);
+      });
+    }
+
+    // افزودن
+    document.getElementById('prodForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const products = getProducts();
+      products.push({
+        name: document.getElementById('pName').value,
+        price: document.getElementById('pPrice').value,
+        img: document.getElementById('pImg').value,
+        cat: document.getElementById('pCat').value
+      });
+      saveProducts(products);
+      renderList();
+      alert('✅ محصول اضافه شد و در صفحه اصلی نمایش داده می‌شود.');
+      e.target.reset();
+    });
+
+    // حذف
+    function removeProd(index) {
+      const products = getProducts();
+      products.splice(index, 1);
+      saveProducts(products);
+      renderList();
+    }
+
+    // اولین نمایش
+    renderList();
+  </script>
+</body>
+</html>
