@@ -7,32 +7,21 @@ async function loadComponent(id, file) {
 loadComponent('header', 'components/header.html');
 loadComponent('footer', 'components/footer.html');
 
-// 2) سبـد خرید محلی (LocalStorage)
-const CART_KEY = 'ma-cart';
-function getCart() {
-  return JSON.parse(localStorage.getItem(CART_KEY)) || [];
-}
-function saveCart(cart) {
-  localStorage.setItem(CART_KEY, JSON.stringify(cart));
-}
-function addToCart(name, price, img) {
-  let cart = getCart();
-  let found = cart.find(i => i.name === name);
-  if (found) found.qty += 1;
-  else cart.push({name, price, img, qty: 1});
-  saveCart(cart);
-  alert('✅ به سبد اضافه شد');
-}
+// 2) اسلایدر خودکار ۵ ثانیه
+const slides = document.querySelector('.slides');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+let index = 0;
+const total = slides.children.length;
 
-// 3) کد تخفیف ساده
-const DISCOUNT_CODE = 'ADIB10'; // ۱۰٪ تخفیف
-function applyDiscount() {
-  const code = prompt('کد تخفیف را وارد کنید:');
-  if (code === DISCOUNT_CODE) {
-    localStorage.setItem('ma-discount', '10');
-    alert('✅ کد تخفیف ۱۰٪ اعمال شد!');
-    location.reload();
-  } else {
-    alert('❌ کد اشتباه است');
-  }
+function showSlide(i) {
+  index = (i + total) % total;
+  slides.style.transform = `translateX(-${index * 100}%)`;
 }
+// خودکار هر ۵ ثانیه
+setInterval(() => {
+  showSlide(index + 1);
+}, 5000);
+
+prevBtn.addEventListener('click', () => showSlide(index - 1));
+nextBtn.addEventListener('click', () => showSlide(index + 1));
