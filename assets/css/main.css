@@ -9,20 +9,18 @@
   margin:0;
   padding:0;
 }
+@font-face{
+  font-family:'B Mitra';
+  src:url('../fonts/BMitra.woff2') format('woff2'),
+      url('../fonts/BMitra.woff') format('woff');
+}
 body{
   direction:rtl;
   background:var(--grey);
   font-family:'B Mitra', tahoma, arial;
   font-size:18px;
 }
-/* فونت B Mitra */
-@font-face{
-  font-family:'B Mitra';
-  src:url('../fonts/BMitra.woff2') format('woff2'),
-      url('../fonts/BMitra.woff') format('woff');
-}
 a{text-decoration:none;color:inherit;}
-/* header */
 .header{
   background:var(--blue);
   color:#fff;
@@ -40,7 +38,6 @@ a{text-decoration:none;color:inherit;}
   color:#fff;
   margin-right:auto;
 }
-/* banner */
 .banner{
   background:var(--orange);
   color:#fff;
@@ -48,7 +45,6 @@ a{text-decoration:none;color:inherit;}
   padding:25px 10px;
   font-size:1.2rem;
 }
-/* product grid */
 .prod-grid{
   display:flex;
   flex-wrap:wrap;
@@ -71,21 +67,4 @@ a{text-decoration:none;color:inherit;}
 }
 .card-body{padding:12px;}
 .card-title{font-weight:bold;margin-bottom:6px;}
-.card-price{color:var(--orange);font-size:1.4rem;margin-bottom:10px;}
-.card-btn{
-  display:block;
-  background:var(--blue);
-  color:#fff;
-  padding:8px;
-  text-align:center;
-  border-radius:4px;
-}
-.card-btn:hover{background:#004a90;}
-/* footer */
-.footer{
-  background:var(--dark);
-  color:#ccc;
-  text-align:center;
-  padding:15px;
-  font-size:.85rem;
-}
+.card-price{color:var(--orange);font-size:
